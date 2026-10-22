@@ -3,7 +3,7 @@
 # 💌 Birthday Surprise
 
 **A two-minute website that does the "I love you" part for you.**<br>
-(You still have to write the letter. Sorry. We tried.)
+(You still have to write the letter. Sorry. Claude and I tried.)
 
 ![Six screens of the birthday site: an envelope, a photo popping out of an envelope, a quiz, a heart-catching game, three gift boxes and a final letter](docs/preview.png)
 
