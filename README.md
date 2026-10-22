@@ -135,4 +135,4 @@ Built with React, TypeScript, Vite, [Motion](https://motion.dev) and [Lucide](ht
 
 ## License
 
-[MIT](LICENSE). Use it, remix it, make someone smile. If it works out, we'd love to hear about it. If it doesn't, the template did its best. 💌
+[MIT](LICENSE). Use it, remix it, make someone smile. 
