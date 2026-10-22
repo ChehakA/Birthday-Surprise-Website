@@ -1,7 +1,7 @@
 /* ════════════════════════════════════════════════════════════════════════
    ♥  THIS IS THE ONLY FILE YOU NEED TO EDIT  ♥
 
-   Everything he reads or sees comes from here: his name, the photos,
+  Everything the recipient reads or sees comes from here: their name, photos,
    the captions, the quiz, the gifts and your letter.
 
    HOW TO EDIT
@@ -32,9 +32,9 @@ export type Photo = {
 
 export type Memory = Photo & {
   /** How this photo is discovered:
-   *  "envelope" – slides out of an envelope as he scrolls
-   *  "flip"     – he taps it and it flips to show `backMessage`
-   *  "mystery"  – hidden behind a mystery card until he taps it */
+  *  "envelope" – slides out of an envelope as they scroll
+  *  "flip"     – they tap it and it flips to show `backMessage`
+  *  "mystery"  – hidden behind a mystery card until they tap it */
   reveal: "envelope" | "flip" | "mystery";
   /** Only used when reveal is "flip" */
   backMessage?: string;
@@ -42,7 +42,7 @@ export type Memory = Photo & {
 
 export type QuizQuestion = {
   question: string;
-  /** 3 or 4 answers. `reply` is what he sees after choosing that answer. */
+  /** 3 or 4 answers. `reply` is shown after choosing an answer. */
   answers: { text: string; reply: string }[];
   /** Which answer is "right": 0 = first, 1 = second, 2 = third, 3 = fourth */
   correct: number;
@@ -57,13 +57,13 @@ export type Gift = {
 };
 
 export const birthdayContent = {
-  /* ── His name or nickname (used in the big birthday title) ─────────── */
-  name: "my love",
+  /* ── Recipient's name or nickname (used in the birthday title) ─────── */
+  name: "birthday star",
 
   /* ── Opening screen ────────────────────────────────────────────────── */
   intro: {
-    greeting: "Hey, birthday boy…",
-    message: "I made a little something just for you. Take two minutes for me? ❤️",
+    greeting: "Happy birthday!",
+    message: "I made a little something to celebrate you. Take a look? ✨",
     button: "Open your surprise",
     /** Tiny note on the letter inside the envelope */
     letterNote: "for you",
@@ -73,31 +73,31 @@ export const birthdayContent = {
   hero: {
     eyebrow: "Today is yours",
     title: "Happy Birthday,",
-    subtitle: "Scroll slowly. I hid a few things in here for you.",
+    subtitle: "Scroll through a few birthday surprises.",
   },
 
   /* ── Section 1: photos ─────────────────────────────────────────────── */
   memories: {
-    title: "Our little memories",
-    subtitle: "A few moments I keep coming back to.",
+    title: "Favorite memories",
+    subtitle: "A few moments worth remembering.",
     photos: [
       {
         src: "images/memory-1.jpg",
-        alt: "Placeholder for our first photo",
-        caption: "One of my favorite memories with you.",
+        alt: "Placeholder for a favorite memory",
+        caption: "A moment worth remembering.",
         reveal: "envelope",
       },
       {
         src: "images/memory-2.jpg",
-        alt: "Placeholder for our second photo",
-        caption: "You make ordinary days feel special.",
+        alt: "Placeholder for a second memory",
+        caption: "A little brightness from an ordinary day.",
         reveal: "flip",
-        backMessage: "A little moment I wish I could relive.",
+        backMessage: "A little moment to remember.",
       },
       {
         src: "images/memory-3.jpg",
-        alt: "Placeholder for our third photo",
-        caption: "My favorite person, always.",
+        alt: "Placeholder for a third memory",
+        caption: "One for the memory book.",
         reveal: "mystery",
       },
     ] as Memory[],
@@ -105,59 +105,59 @@ export const birthdayContent = {
 
   /* ── Section 2: quiz ───────────────────────────────────────────────── */
   quiz: {
-    title: "Okay birthday boy… do you know what I love about you?",
-    subtitle: "Three questions. No pressure. (Some pressure.)",
+    title: "A little birthday quiz",
+    subtitle: "Three questions about the things that make you wonderful.",
     questions: [
       {
-        question: "What is my favorite thing about you?",
+        question: "What is one thing people appreciate about you?",
         answers: [
-          { text: "My smile", reply: "Awww, that’s actually so cute." },
-          { text: "My heart", reply: "Okayyy, I’ll give you that one." },
-          { text: "How safe I make you feel", reply: "You know us better than you think." },
-          { text: "Everything. You can’t pick", reply: "Correct. I really can’t pick." },
+          { text: "My sense of humor", reply: "Definitely something to smile about." },
+          { text: "My kindness", reply: "A wonderful quality to have." },
+          { text: "My creativity", reply: "That makes life more interesting." },
+          { text: "All of the above", reply: "Exactly. There is a lot to appreciate." },
         ],
         correct: 3,
       },
       {
-        question: "When do I think you look your best?",
+        question: "What is the best thing to make time for?",
         answers: [
-          { text: "All dressed up", reply: "Very handsome. Still not my answer." },
-          { text: "Just woken up, hair a mess", reply: "HAHA, you should know this by now 😭❤️" },
-          { text: "When I’m laughing", reply: "Yes. That one, every single time." },
-          { text: "Every time, it’s annoying", reply: "Okayyy, I’ll give you that one." },
+          { text: "A new adventure", reply: "A great way to make a memory." },
+          { text: "Time with good people", reply: "The best moments are shared." },
+          { text: "Something that makes you happy", reply: "Always worth making time for." },
+          { text: "All of these", reply: "A well-balanced answer!" },
         ],
         correct: 2,
       },
       {
-        question: "What is one thing about you that always makes me smile?",
+        question: "What is one thing you deserve more of this year?",
         answers: [
-          { text: "My laugh", reply: "Awww, that’s actually so cute." },
-          { text: "My terrible jokes", reply: "They are terrible. I smile anyway." },
-          { text: "The way I look at you", reply: "You know us better than you think." },
-          { text: "All of the above", reply: "Obviously. Every single one." },
+          { text: "Time to do what you enjoy", reply: "Make room for the good stuff." },
+          { text: "New experiences", reply: "Here is to trying something new." },
+          { text: "Reasons to celebrate", reply: "Starting with today!" },
+          { text: "All of the above", reply: "Absolutely. May the year bring plenty." },
         ],
         correct: 3,
       },
     ] as QuizQuestion[],
     /** Shown at the end. `perfect` = all right, `some` = one or two, `none` = zero. */
     results: {
-      perfect: "A perfect score. You know us by heart.",
-      some: "Not bad at all. You were paying attention.",
-      none: "Zero?! Lucky for you, I like you anyway.",
+      perfect: "A perfect score. Nicely done!",
+      some: "Not bad at all. Thanks for playing!",
+      none: "The important thing is that you had fun!",
     },
-    resultNote: "Either way, you were always my right answer.",
+    resultNote: "You deserve to be celebrated, whatever your score.",
     continueButton: "Keep going",
   },
 
   /* ── Section 3: heart-catching game ────────────────────────────────── */
   game: {
-    title: "Catch a little love",
+    title: "Catch a little joy",
     instructions: "Tap the hearts as they appear. Catch all five.",
     startButton: "Start",
-    counterLabel: "Love collected",
-    /** How many hearts he needs to catch */
+    counterLabel: "Joy collected",
+    /** How many hearts the recipient needs to catch */
     goal: 5,
-    completionMessage: "You collected all the hearts… but somehow you still have mine. ❤️",
+    completionMessage: "You caught them all! Hope they brighten your day. ✨",
     continueButton: "There’s more",
   },
 
@@ -168,11 +168,11 @@ export const birthdayContent = {
     items: [
       {
         label: "A coupon",
-        text: "One free hug, redeemable whenever you need one.",
+        text: "Redeem for a little pick-me-up whenever you need one.",
       },
       {
         label: "A memory",
-        text: "A reminder that I’m always cheering for you.",
+        text: "A reminder that people are cheering you on.",
         photo: {
           src: "images/memory-4.jpg",
           alt: "Placeholder for a gift photo",
@@ -181,7 +181,7 @@ export const birthdayContent = {
       },
       {
         label: "A promise",
-        text: "I will always choose you, no matter what the situation is.",
+        text: "Make time for the things and people that matter to you.",
       },
     ] as Gift[],
     continueButton: "Read your letter",
@@ -189,24 +189,24 @@ export const birthdayContent = {
 
   /* ── Section 5: your letter ────────────────────────────────────────── */
   letter: {
-    heading: "Happy birthday, my love. ❤️",
+    heading: "A birthday note for you",
     favoritePhoto: {
       src: "images/favorite-photo.jpg",
-      alt: "Placeholder for my favorite photo of us",
-      caption: "My favorite one.",
+      alt: "Placeholder for a favorite birthday photo",
+      caption: "A favorite memory.",
     } as Photo,
     unfoldHint: "Tap to unfold your letter",
     /** Each "..." below is one paragraph. Add or remove paragraphs freely. */
     paragraphs: [
-      "Today is all about you, and I hope you know how special you are to me. I wish I could put into words how much happiness you bring into my life. You deserve so many beautiful things, so much love, and every little reason to smile.",
-      "I hope this new year of your life brings you closer to everything you’ve been dreaming of. I’ll always be cheering for you, celebrating you, and reminding you how amazing you are.",
-      "Thank you for being you. And if I could give you one thing today, it would be the chance to see yourself through my eyes.",
-      "Happy birthday, baby. I love you. ❤️",
+      "[Add a birthday message here.]",
+      "[Share a favorite memory or something you appreciate about them.]",
+      "[Add a wish for the year ahead.]",
+      "Happy birthday!",
     ],
     /** Your name or sign-off under the letter. Leave "" to hide it. */
-    signature: "Yours, always",
+    signature: "[Add your name or sign-off]",
     lastButton: "One last thing… ❤️",
-    finalMessage: "Out of all the people in this world, I’m so glad it’s you.",
+    finalMessage: "Wishing you a wonderful year ahead!",
     restartButton: "Start again",
   },
 };
